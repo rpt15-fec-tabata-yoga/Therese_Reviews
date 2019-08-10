@@ -1,0 +1,22 @@
+{
+  "name": "therese_reviews",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpt15-fec-tabata-yoga/Therese_Reviews.git"
+  },
+  "author": "Thérèse Brown",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpt15-fec-tabata-yoga/Therese_Reviews/issues"
+  },
+  "homepage": "https://github.com/rpt15-fec-tabata-yoga/Therese_Reviews#readme",
+  "devDependencies": {
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git"
+  }
+}

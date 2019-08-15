@@ -9,9 +9,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        App working!
+        App working! Is the bundle working?
       </div>
-    )
+    );
   }
 }
 

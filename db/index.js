@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongod://localhost:3001/reviews');
+mongoose.connect('mongodb://localhost/reviews', {useNewUrlParser: true});
 
 const Review = mongoose.model('reviews', {
   author: String,
@@ -15,4 +15,11 @@ const Review = mongoose.model('reviews', {
   comments: Number
 });
 
-module.exports = Review;
+const fetch = () => {
+  return Review.find();
+};
+
+module.exports = {
+  Review,
+  fetch
+};

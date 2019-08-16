@@ -2,9 +2,9 @@ const Review = require('./index.js');
 const faker = require('faker');
 
 const seed = (numOfData) => {
-  var json = [];
-  for (var i = 0; i < numOfData; ++i) {
-    var newReview = {};
+  let json = [];
+  for (let i = 0; i < numOfData; ++i) {
+    let newReview = {};
     newReview.author = faker.internet.userName();
     newReview.numOfGames = faker.random.number();
     newReview.numOfReviews = faker.random.number();
@@ -28,6 +28,6 @@ const seed = (numOfData) => {
       }
     });
   }
-}
+};
 
 seed(100);

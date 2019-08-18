@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack -d --watch",
     "start": "nodemon server/index.js",
     "seed": "node db/seed.js"
@@ -25,8 +25,12 @@
   "devDependencies": {
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git"
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "jest": "^24.9.0"
   },
   "dependencies": {
     "@babel/cli": "^7.5.5",
@@ -39,6 +43,7 @@
     "nodemon": "^1.19.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "request": "^2.88.0",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6"
   }

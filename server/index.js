@@ -13,7 +13,7 @@ app.get('/api/reviews', (req, res) => {
     res.status(200);
     res.send(JSON.stringify(data));
   }).catch((err) => {
-    res.sendStatus(400);
+    res.status(500).send({ error: 'Unable to fetch reviews from the database' });
   });
 });
 

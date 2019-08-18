@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/reviews', {useNewUrlParser: true});
 
+let db = mongoose.connection;
+db.on('error', console.error.bind(console, 'mongodb connection error'));
+db.once('open', () => {
+  console.log('connected to mongoDb');
+});
+
 const Review = mongoose.model('reviews', {
   author: String,
   numOfGames: Number,
@@ -12,7 +18,8 @@ const Review = mongoose.model('reviews', {
   helpful: Number,
   unhelpful: Number,
   funny: Number,
-  comments: Number
+  comments: Number,
+  userPhoto: String
 });
 
 const fetch = () => {

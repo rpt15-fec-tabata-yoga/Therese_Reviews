@@ -16,11 +16,12 @@ const seed = (numOfData) => {
     newReview.unhelpful = faker.random.number();
     newReview.funny = faker.random.number();
     newReview.comments = faker.random.number();
+    newReview.userPhoto = faker.image.avatar();
     json.push(newReview);
   }
 
   if (json.length >= numOfData) {
-    Review.collection.insertMany(json, (err) => {
+    Review.Review.collection.insertMany(json, (err) => {
       if (err) {
         throw(err);
       } else {

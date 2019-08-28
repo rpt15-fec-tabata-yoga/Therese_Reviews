@@ -1,4 +1,6 @@
 import React from 'react';
+import OverallRev from './OverallRev.jsx';
+import RecentRev from './RecentRev.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,10 +11,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        App working! Is the bundle working?
+      <h2>CUSTOMER REVIEWS</h2>
+      <div>
+        <OverallRev />
+        <RecentRev />
+      </div>
       </div>
     );
   }
-}
+};
 
 export default App;

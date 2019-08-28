@@ -4,9 +4,9 @@ const db = require('../db/index.js');
 const app = express();
 const port = 3001;
 
-app.use(express.static(__dirname + '/../public/dist'));
+app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/api/reviews', (req, res) => {
   db.fetch().then((data) => {

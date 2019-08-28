@@ -16,6 +16,14 @@ class App extends React.Component {
         <OverallRev />
         <RecentRev />
       </div>
+      <div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       </div>
     );
   }

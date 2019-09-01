@@ -8,6 +8,7 @@ db.once('open', () => {
 });
 
 const Review = mongoose.model('reviews', {
+  game: String,
   author: String,
   numOfGames: Number,
   numOfReviews: Number,
@@ -22,8 +23,8 @@ const Review = mongoose.model('reviews', {
   userPhoto: String
 });
 
-const fetch = () => {
-  return Review.find();
+const fetch = (gameName) => {
+  return Review.find({game: gameName});
 };
 
 module.exports = {

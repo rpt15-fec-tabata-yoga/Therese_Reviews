@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import isPosOrNeg from '../utils/utilities.js';
-import OverallRev from './OverallRev.jsx';
-import RecentRev from './RecentRev.jsx';
 import Reviews from './Reviews.jsx';
 
 class App extends React.Component {
@@ -55,7 +53,6 @@ class App extends React.Component {
       <div>
         <h2>CUSTOMER REVIEWS</h2>
         <div>
-          {/* <OverallRev reviews={this.state.reviews}/> */}
           <div>
             <div>
               <div>Overall Reviews:</div>
@@ -64,7 +61,6 @@ class App extends React.Component {
               {/* <a class="tooltip">{this.state.posOrNeg}</a> */}
             </div>
           </div>
-          {/* <RecentRev /> */}
           <div>
             <div>
               <div>Recent Reviews:</div>
@@ -76,19 +72,19 @@ class App extends React.Component {
         </div>
         <div>
           <div>
-            <div class="title">Review Type</div>
+            <div className="title">Review Type</div>
           </div>
           <div>
-            <div class="title">Purchase Type</div>
+            <div className="title">Purchase Type</div>
           </div>
           <div>
-            <div class="title">Language</div>
+            <div className="title">Language</div>
           </div>
           <div>
-            <div class="title">Date Range</div>
+            <div className="title">Date Range</div>
           </div>
           <div>
-            <span class="title">Display As: </span>
+            <span className="title">Display As: </span>
             <select>
               <option value="summary">Summary</option>
               <option value="all">Most Helpful</option>
@@ -103,21 +99,20 @@ class App extends React.Component {
         </div>
         <div>
           <div>
-            <div class="title">Filters</div>
+            <div className="title">Filters</div>
             <div>Your Languages</div>
           </div>
           <div>
             <div>
-              <span>Showing <b>{this.state.reviews.length}</b> reviews that match the filters above (
-                {/* <span>{positiveOrNegative}</span> */}
-                 )
-              </span>
+              <span>Showing <b>{this.state.reviews.length}</b> reviews that match the filters above ( <span>{this.state.overallPosOrNeg}</span> )</span>
             </div>
           </div>
         </div>
         <div>
           <div>Most Helpful Reviews <span>In the past 30 days</span></div>
-          {/* <Reviews /> */}
+          {this.state.reviews.map((rev) => {
+            return <Reviews key={rev._id} review={rev} />
+          })}
         </div>
       </div>
     );

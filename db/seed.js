@@ -10,7 +10,7 @@ const seed = (numOfData) => {
     newReview.numOfGames = faker.random.number();
     newReview.numOfReviews = faker.random.number();
     newReview.posted = faker.date.past();
-    newReview.recordHours = faker.random.number;
+    newReview.recordHours = faker.random.number();
     newReview.body = faker.lorem.paragraph();
     newReview.recommended = faker.random.boolean();
     newReview.helpful = faker.random.number();
@@ -30,7 +30,7 @@ const seed = (numOfData) => {
     newReview.numOfGames = faker.random.number();
     newReview.numOfReviews = faker.random.number();
     newReview.posted = faker.date.past();
-    newReview.recordHours = faker.random.number;
+    newReview.recordHours = faker.random.number();
     newReview.body = faker.lorem.paragraph();
     newReview.recommended = faker.random.boolean();
     newReview.helpful = faker.random.number();

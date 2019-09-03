@@ -14,14 +14,14 @@ const isPosOrNeg = (revs) => {
     let percent = (pos / revs.length) * 100;
     if (percent > 50 && percent < 75) {
         return 'Very Positive';
-    } else if (percent > 75) {
+    } else if (percent >= 75) {
         return 'Overwhelmingly Positive';
     }
   } else if (pos < neg) {
     let percent = (pos / revs.length) * 100;
     if (percent > 25 && percent < 50) {
         return 'Very Negative';
-    } else if (percent < 25) {
+    } else if (percent <= 25) {
         return 'Overwhelmingly Negative';
     }
   } else if (pos === neg) {

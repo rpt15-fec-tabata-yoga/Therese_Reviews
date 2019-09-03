@@ -39,7 +39,6 @@ class App extends React.Component {
         }
       }
       let posOrNeg = isPosOrNeg(recent);
-      console.log(recent);
       this.setState({
         recentPosOrNeg: posOrNeg,
         recent: recent
@@ -101,22 +100,22 @@ class App extends React.Component {
             </span>
           </div>
         </div>
-        <div>
-          <div>
-            <div className="title">Filters</div>
-            <div>Your Languages</div>
+        <div className={style.filterListContainer}>
+          <div className={style.filterList}>
+            <div className={style.filterListTitle}>Filters</div>
+            <div className={style.activeFilter}>Your Languages</div>
           </div>
-          <div>
-            <div>
-              <span>Showing <b> {this.state.reviews.length} </b> reviews that match the filters above (
-                <span> {this.state.overallPosOrNeg}
+          <div className={style.filterOverviewContainer}>
+            <div className={style.filterOverviewBar}>
+              <span className={style.filterOverview}>Showing <b> {this.state.reviews.length} </b> reviews that match the filters above (
+                <span className={style.filterPosOrNeg}> {this.state.overallPosOrNeg}
                  </span>
               )</span>
             </div>
           </div>
         </div>
-        <div>
-          <div>Most Helpful Reviews <span>In the past 30 days</span></div>
+        <div className={style.reviewsContainer}>
+          <div className={style.reviewsMainHeader}>Most Helpful Reviews <span className={style.reviewsSubtleHeader}>In the past 30 days</span></div>
           {this.state.reviews.map((rev) => {
             return <Reviews key={rev._id} review={rev} />
           })}

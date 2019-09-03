@@ -38,6 +38,7 @@ class App extends React.Component {
         }
       }
       let posOrNeg = isPosOrNeg(recent);
+      console.log(recent);
       this.setState({
         recentPosOrNeg: posOrNeg,
         recent: recent

@@ -66,6 +66,25 @@ class Reviews extends React.Component {
             <div>------</div>
             <div>
               <span>Was this review helpful?</span>
+              <span>
+                <img src="https://steamstore-a.akamaihd.net/public/shared/images/buttons/icons_16.png?v=5"></img>
+                 Yes
+              </span>
+              <span>
+                <img src="https://steamstore-a.akamaihd.net/public/shared/images/buttons/icons_16.png?v=5"></img>
+                 No
+              </span>
+              <span>
+                <img src="https://steamstore-a.akamaihd.net/public/shared/images/buttons/icons_16.png?v=5"></img>
+                 Funny
+              </span>
+            </div>
+            <div>
+              {this.props.review.helpful} people found this review helpful
+              <br></br>
+              {this.props.review.unhelpful} people found this review unhelpful
+              <br></br>
+              {this.props.review.funny} people found this review funny
             </div>
           </div>
         </div>

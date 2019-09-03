@@ -1,4 +1,5 @@
 import React from 'react';
+import style from '../Styles/Reviews.css';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -44,19 +45,6 @@ class Reviews extends React.Component {
           <div>
             <div>
               <img src={this.state.toRecOrNotImg}></img>
-              {/* {() => {
-                if (this.props.review.recommended) {
-                  this.setState({
-                    toRecOrNot: 'Recommended'
-                  });
-                  return <img src="https://steamstore-a.akamaihd.net/public/shared/images/userreviews/icon_thumbsUp_v6.png"></img>
-                } else {
-                  this.setState({
-                    toRecOrNot: 'Not Recommended'
-                  });
-                  return <img src="https://steamcommunity-a.akamaihd.net/public/shared/images/userreviews/icon_thumbsDown.png?v=1"></img>
-                }
-              }} */}
             </div>
             <img src="https://steamstore-a.akamaihd.net/public/shared/images/userreviews/icon_review_steam.png"></img>
             <div>{this.state.toRecOrNot}</div>

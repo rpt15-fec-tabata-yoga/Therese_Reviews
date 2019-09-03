@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import isPosOrNeg from '../utils/utilities.js';
 import Reviews from './Reviews.jsx';
+import style from '../Styles/App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -53,39 +54,39 @@ class App extends React.Component {
     return (
       <div>
         <h2>CUSTOMER REVIEWS</h2>
-        <div>
-          <div>
-            <div>
-              <div>Overall Reviews:</div>
-              <span>{this.state.overallPosOrNeg}</span>
-              <span>({this.state.reviews.length} reviews)</span>
+        <div className={style.statContainer}>
+          <div className={style.statBar}>
+            <div className={style.summary}>
+              <div className={style.title}>Overall Reviews:</div>
+              <span className={style.posOrNeg}> {this.state.overallPosOrNeg} </span>
+              <span className={style.numOfRevs}>({this.state.reviews.length} reviews)</span>
               {/* <a class="tooltip">{this.state.posOrNeg}</a> */}
             </div>
           </div>
-          <div>
-            <div>
-              <div>Recent Reviews:</div>
-              <span>{this.state.recentPosOrNeg}</span>
-              <span>({this.state.recent.length} reviews)</span>
+          <div className={style.statBar}>
+            <div className={style.summary}>
+              <div className={style.title}>Recent Reviews:</div>
+              <span className={style.posOrNeg}> {this.state.recentPosOrNeg} </span>
+              <span className={style.numOfRevs}>({this.state.recent.length} reviews)</span>
               {/* <a class="tooltip">{something}</a> */}
             </div>
           </div>
         </div>
-        <div>
-          <div>
-            <div className="title">Review Type</div>
+        <div className={style.filterContainer}>
+          <div className={style.filterMenu}>
+            <div className={style.filterTitle}>Review Type</div>
           </div>
-          <div>
-            <div className="title">Purchase Type</div>
+          <div className={style.filterMenu}>
+            <div className={style.filterTitle}>Purchase Type</div>
           </div>
-          <div>
-            <div className="title">Language</div>
+          <div className={style.filterMenu}>
+            <div className={style.filterTitle}>Language</div>
           </div>
-          <div>
-            <div className="title">Date Range</div>
+          <div className={style.filterMenu}>
+            <div className={style.filterTitle}>Date Range</div>
           </div>
-          <div>
-            <span className="title">Display As: </span>
+          <div className={style.displayContainer}>
+            <span className={style.displayTitle}>Display As: </span>
             <select>
               <option value="summary">Summary</option>
               <option value="all">Most Helpful</option>
@@ -93,9 +94,11 @@ class App extends React.Component {
               <option value="funny">Funny</option>
             </select>
           </div>
-          <div>
-            <span>Show Graph</span>
-            <div>&nbsp</div>
+          <div className={style.graphContainer}>
+            <span className={style.graphBar}>
+              <span className={style.graphTitle}>Show Graph</span>
+              <div className={style.dblDwnArrow}></div>
+            </span>
           </div>
         </div>
         <div>
@@ -105,7 +108,10 @@ class App extends React.Component {
           </div>
           <div>
             <div>
-              <span>Showing <b>{this.state.reviews.length}</b> reviews that match the filters above ( <span>{this.state.overallPosOrNeg}</span> )</span>
+              <span>Showing <b> {this.state.reviews.length} </b> reviews that match the filters above (
+                <span> {this.state.overallPosOrNeg}
+                 </span>
+              )</span>
             </div>
           </div>
         </div>

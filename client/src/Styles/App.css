@@ -1,0 +1,334 @@
+html {
+  color: -internal-root-color;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #1b2838;
+  color: #acb2b8;
+}
+
+h2 {
+  margin-bottom: 0px;
+  font-family: "Motiva Sans", Sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0 0 10px;
+  letter-spacing: 2px;
+  font-weight: normal;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  background-image: url(https://steamstore-a.akamaihd.net/public/images/v6/maincol_gradient_rule.png);
+  display: block;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.statContainer {
+  background-color: #2a475e;
+  box-shadow: 0 0 5px #000;
+  position: relative;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #c6d4df;
+  font-size: 12px;
+}
+
+.statBar {
+  margin-bottom: 0px;
+  border-bottom: 1px solid #000000;
+  padding: 10px;
+  background: none;
+  min-height: 38px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #c6d4df;
+  font-size: 12px;
+}
+
+.summary {
+  display: inline-block;
+  margin-right: 15px;
+  color: #8ba6b6;
+  min-width: 320px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.title {
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: normal;
+  font-size: 15px;
+  margin-bottom: 5px;
+  color: #e5e5e5;
+  display: block;
+}
+
+.posOrNeg {
+  color: #66C0F4;
+  cursor: help;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 9px;
+  text-shadow: 1px 1px rgba( 0, 0, 0, 0.2 );
+}
+
+.numOfRevs {
+  color: #8ba6b6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.filterContainer {
+  padding: 0px;
+  font-size: 12px;
+  margin-bottom: 30px;
+  background-color: #1f2f42;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #c6d4df;
+}
+
+.filterMenu {
+  border-left: 1px solid #2a475e;
+  position: relative;
+  float: left;
+  padding-right: 10px;
+  display: block;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #c6d4df;
+}
+
+.filterTitle {
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #4582a5;
+  padding: 10px;
+  padding-right: 20px;
+  cursor: pointer;
+  background-image: url(https://steamstore-a.akamaihd.net/public/images/v6/btn_arrow_down_padded.png);
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: right;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.displayContainer {
+  float: left;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #4582a5;
+  padding: 5px 10px;
+  border-left: 1px solid #2a475e;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.displayTitle {
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #4582a5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+select {
+  width: 100px;
+  background: #4582a5;
+  font-size: 12px;
+  border: none;
+  border-radius: 2px;
+  margin-left: 5px;
+  margin-top: 2px;
+  overflow: visible !important;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: black;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  -webkit-appearance: menulist;
+  box-sizing: border-box;
+  align-items: center;
+  white-space: pre;
+  -webkit-rtl-ordering: logical;
+  cursor: default;
+  font: 400 11px system-ui;
+}
+
+option {
+  font-weight: normal;
+  display: block;
+  white-space: pre;
+  min-height: 1.2em;
+  font-size: 12px;
+}
+
+.graphContainer {
+  float: right;
+  display: block;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #c6d4df;
+}
+
+.graphBar {
+  display: inherit;
+  border-radius: 2px;
+  border: none;
+  padding: 1px;
+  cursor: pointer;
+  text-decoration: none !important;
+  color: #67c1f5 !important;
+  background: rgba( 103, 193, 245, 0.2 );
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.graphTitle {
+  display: inline;
+  padding: 0 5px;
+  font-size: 12px;
+  line-height: 20px;
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+  color: #67c1f5 !important;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dblDwnArrow {
+  background-position: 0px -12px;
+  width: 14px;
+  height: 16px;
+  margin-right: 7px;
+  margin-top: 4px;
+  background: url(https://steamstore-a.akamaihd.net/public/images/v6/app/review_graph_expander.png);
+  background-repeat: no-repeat;
+  background-size: 14px 26px;
+  display: inline-block;
+  cursor: pointer;
+  color: #67c1f5 !important;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.filterListContainer {
+  border-bottom: 1px solid #000;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #c6d4df;
+  font-size: 12px;
+}
+
+.filterList {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #c6d4df;
+  font-size: 12px;
+}
+
+.filterListTitle {
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: normal;
+  text-transform: none;
+  font-size: 15px;
+  color: #c6d4df;
+  padding-bottom: 5px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.activeFilter {
+  background-color: rgba( 255, 255, 255, 0.2 );
+  padding: 5px;
+  padding-right: 25px;
+  margin-right: 5px;
+  border-radius: 2px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-image: url(https://steamstore-a.akamaihd.net/public/images/v6/deleteSearchTerm.png);
+  background-position: right 5px center;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #c6d4df;
+  font-size: 12px;
+}
+
+.filterOverviewContainer {
+  display: block;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: normal;
+  padding-top: 10px;
+  font-size: 15px;
+  color: #c6d4df;
+}
+
+.filterOverviewBar {
+  display: block;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: normal;
+  font-size: 15px;
+  color: #c6d4df;
+}
+
+.filterOverview {
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: normal;
+  font-size: 15px;
+  color: #c6d4df;
+}
+
+.filterPosOrNeg {
+  cursor: help;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: bold;
+  color: #66C0F4;
+  font-size: 15px;
+}
+
+.reviewsContainer {
+  display: block;
+  margin-top: 0px;
+  min-height: 1000px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #c6d4df;
+  font-size: 12px;
+  float: none;
+  width: auto;
+  margin-left: 0;
+}
+
+.reviewsMainHeader {
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  letter-spacing: 2px;
+  display: block;
+}
+
+.reviewsSubtleHeader {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #56707f;
+  font-family: "Motiva Sans", Sans-serif;
+  font-weight: normal;
+  letter-spacing: 2px;
+}

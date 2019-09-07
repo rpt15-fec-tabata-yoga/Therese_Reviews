@@ -24,6 +24,12 @@ const seed = (numOfData) => {
   numOfData -= 45;
 
   for (let i = 0; i < numOfData; ++i) {
+    if (i === numOfData - 1) {
+      setTimeout(() => {
+        process.exit();
+      }, 1000);
+    }
+
     let newReview = {};
     newReview.game = faker.company.companyName();
     newReview.author = faker.internet.userName();

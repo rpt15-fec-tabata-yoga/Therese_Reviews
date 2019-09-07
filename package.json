@@ -7,6 +7,7 @@
     "test": "jest",
     "build": "webpack -d --watch",
     "start": "nodemon server/index.js",
+    "startDocker": "node db/seed.js && sleep 2 && nodemon server/index.js",
     "seed": "node db/seed.js"
   },
   "repository": {

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/reviews', {useNewUrlParser: true});
+mongoose.connect('mongodb://database/reviews', {useNewUrlParser: true});
 
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'mongodb connection error'));

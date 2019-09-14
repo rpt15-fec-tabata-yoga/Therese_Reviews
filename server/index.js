@@ -9,8 +9,8 @@ app.use('/', express.static(__dirname + '/../public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/api/reviews/:gameName', (req, res) => {
-  db.fetch(req.params.gameName).then((data) => {
+app.get('/api/reviews/:gameId', (req, res) => {
+  db.fetch(req.params.gameId).then((data) => {
     res.status(200);
     res.send(JSON.stringify(data));
   }).catch((err) => {

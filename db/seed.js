@@ -6,6 +6,7 @@ const seed = (numOfData) => {
   for (let i = 0; i < 45; ++i) {
     let newReview = {};
     newReview.game = 'Stardew Valley';
+    newReview.gameId = 1;
     newReview.author = faker.internet.userName();
     newReview.numOfGames = faker.random.number();
     newReview.numOfReviews = faker.random.number();
@@ -32,6 +33,7 @@ const seed = (numOfData) => {
 
     let newReview = {};
     newReview.game = faker.company.companyName();
+    newReview.gameId = faker.random.number();
     newReview.author = faker.internet.userName();
     newReview.numOfGames = faker.random.number();
     newReview.numOfReviews = faker.random.number();

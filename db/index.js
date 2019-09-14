@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://database/reviews', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/reviews', {useNewUrlParser: true});
 
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'mongodb connection error'));
@@ -9,6 +9,7 @@ db.once('open', () => {
 
 const Review = mongoose.model('reviews', {
   game: String,
+  gameId: Number,
   author: String,
   numOfGames: Number,
   numOfReviews: Number,
@@ -23,8 +24,8 @@ const Review = mongoose.model('reviews', {
   userPhoto: String
 });
 
-const fetch = (gameName) => {
-  return Review.find({game: gameName});
+const fetch = (gameId) => {
+  return Review.find({gameId: gameId});
 };
 
 module.exports = {

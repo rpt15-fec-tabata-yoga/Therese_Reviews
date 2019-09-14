@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      gameId: window.onsecuritypolicyviolation.pathname.split('/')[1],
+      gameId: window.location.pathname.split('/')[1],
       reviews: [],
       overallPosOrNeg: '',
       recentPosOrNeg: '',
@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    axios.get(`${process.env.API_URL}/api/reviews/${this.state.gameId}`)
+    axios.get(`/api/reviews/${this.state.gameId}`)
     .then((data) => {
       this.setState({
         reviews: data.data

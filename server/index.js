@@ -5,7 +5,7 @@ const db = require('../db/index.js');
 const app = express();
 const port = 3001;
 
-app.use('/:gameName', express.static(__dirname + '/../public'));
+app.use('/:gameId', express.static(__dirname + '/../public'));
 app.use('/', express.static(__dirname + '/../public'));
 app.use(cors());
 app.use(bodyParser.json());

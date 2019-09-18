@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    axios.get(`/api/reviews/${this.state.gameId}`)
+    axios.get(`http://ec2-54-183-55-106.us-west-1.compute.amazonaws.com/api/reviews/${this.state.gameId}`)
     .then((data) => {
       this.setState({
         reviews: data.data

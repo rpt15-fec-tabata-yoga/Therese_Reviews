@@ -1,5 +1,5 @@
 {
-  "name": "therese_reviews",
+  "name": "richard_reviews",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,22 +7,22 @@
     "test": "jest",
     "build": "webpack -d --watch",
     "start": "nodemon server/index.js",
-    "startDocker": "node db/seed.js && sleep 2 && nodemon server/index.js",
+    "startDocker": "concurrently --kill-others \"npm run seed\" \"npm run start\"",
     "seed": "node db/seed.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rpt15-fec-tabata-yoga/Therese_Reviews.git"
+    "url": "git+https://github.com/rpt15-drKarp/Richard_Reviews.git"
   },
-  "author": "Thérèse Brown",
+  "author": "Richard Kang",
   "license": "ISC",
   "engines": {
     "node": ">=12"
   },
   "bugs": {
-    "url": "https://github.com/rpt15-fec-tabata-yoga/Therese_Reviews/issues"
+    "url": "https://github.com/rpt15-drKarp/Richard_Reviews/issues"
   },
-  "homepage": "https://github.com/rpt15-fec-tabata-yoga/Therese_Reviews#readme",
+  "homepage": "https://github.com/rpt15-drKarp/Richard_Reviews#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
@@ -41,6 +41,7 @@
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "compression-webpack-plugin": "^3.0.0",
+    "concurrently": "^4.1.2",
     "cors": "^2.8.5",
     "css-loader": "^3.2.0",
     "express": "^4.17.1",

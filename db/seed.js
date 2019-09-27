@@ -1,4 +1,4 @@
-const Review = require('./index.js');
+const {Review} = require('./index.js');
 const faker = require('faker');
 
 const seed = (numOfData) => {
@@ -50,10 +50,12 @@ const seed = (numOfData) => {
   }
 
   if (json.length >= numOfData) {
-    Review.Review.collection.insertMany(json, (err) => {
+    Review.insertMany(json, (err, revs) => {
       if (err) {
+        console.log('hello?', err)
         throw(err);
       } else {
+        console.log('hello?', revs[1])
         console.log('Successfully seeded data!');
       }
     });

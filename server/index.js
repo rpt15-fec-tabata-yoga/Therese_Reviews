@@ -28,6 +28,12 @@ app.get('/api/reviews/:gameId', (req, res) => {
   });
 });
 
+// app.post()
+
+// app.put()
+
+// app.delete()
+
 app.listen(port, () => {
   console.log(`App listening on ${port}`);
 });

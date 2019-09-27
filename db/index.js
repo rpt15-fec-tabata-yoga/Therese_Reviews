@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://database/reviews', {useNewUrlParser: true});
+const db = mongoose.connect('mongodb://database:27017/reviews', { useNewUrlParser: true });
 
-let db = mongoose.connection;
-db.on('error', console.error.bind(console, 'mongodb connection error'));
-db.once('open', () => {
+let dbConnection = mongoose.connection;
+dbConnection.on('error', console.error.bind(console, 'mongodb connection error'));
+dbConnection.once('open', () => {
   console.log('connected to mongoDb');
 });
 
-const Review = mongoose.model('reviews', {
+const schema = new mongoose.Schema({
   game: String,
   gameId: Number,
   author: String,
@@ -22,13 +22,16 @@ const Review = mongoose.model('reviews', {
   funny: Number,
   comments: Number,
   userPhoto: String
-});
+})
+
+const Review = mongoose.model('Reviews', schema);
 
 const fetch = (gameId) => {
   return Review.find({gameId: gameId});
 };
 
 module.exports = {
+  db,
   Review,
   fetch
 };

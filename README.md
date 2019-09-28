@@ -12,6 +12,8 @@
       * 1.2 [Related Projects](#12-related-projects)
         - [Proxy server](#micro-services)
         - [Microservices](#micro-services)
+  2. [Choice of database](#2-choice-of-database)
+  3. [Dev Log](#3-development-log)
 
 ## 1. Project specifications
 
@@ -51,3 +53,10 @@ To build the app on your local desktop, clone the [repository](https://github.co
   * [Overview](https://github.com/rpt15-drKarp/alastair_overview)
   * [Photo Carousel](https://github.com/rpt15-drKarp/stephen_photoCarousel)
   * [Game Description](https://github.com/rpt15-drKarp/Therese_aboutGame)
+
+## 2. Choice of Database
+
+  * NoSQL: Cassandra
+  * SQL: MySQL
+  
+## 3. Development Log

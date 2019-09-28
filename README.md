@@ -10,8 +10,8 @@
         - [Technologies](#technologies)
         - [Setup](#setup)
       * 1.2 [Related Projects](#12-related-projects)
-        - Proxy server(#proxy-server)
-        - Microservices(#microservices)
+        - [Proxy server](#micro-services)
+        - [Microservices](#micro-services)
 
 ## 1. Project specifications
 

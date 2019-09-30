@@ -38,12 +38,12 @@ Deployment is done using docker-compose.
 Run ``docker-compose up`` in the terminal and navigate to localhost in your browser. The service maps port 80 to port 3001, where the app is listening.
 
 To build the app on your local desktop, clone the [repository](https://github.com/rpt15-drKarp/Richard_Reviews) and run the following commands:
-``
+```
   Make sure you have all of the appropriate dependencies: "npm install"
   To start the node app: "npm run start"
   To seed the database: "npm run seed"
   To run the tests: "npm run test"
-``
+```
 
 ### 1.2 Related Projects
 

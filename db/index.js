@@ -30,8 +30,41 @@ const fetch = (gameId) => {
   return Review.find({gameId: gameId});
 };
 
+const update = (gameId, changes) => {
+  Review.updateOne({gameId: gameId}, changes, (err, res) => {
+    if (err) {
+      throw(err);
+    } else {
+      return res;
+    };
+  })
+};
+
+const remove = (gameId) => {
+  Review.deleteOne({gameId: gameId}, (err) => {
+    if (err) {
+      throw(err);
+    } else {
+      return `${gameId} deleted.`
+    }
+  })
+}
+
+const add = (obj) => {
+  Review.insertMany(obj, (err, reviews) => {
+    if (err) {
+      throw(err);
+    } else {
+      return 'Successfully created a new review!';
+    }
+  })
+};
+
 module.exports = {
   db,
   Review,
-  fetch
+  fetch,
+  update,
+  remove,
+  add
 };

@@ -28,11 +28,32 @@ app.get('/api/reviews/:gameId', (req, res) => {
   });
 });
 
-// app.post()
+app.post('/api/reviews/:gameId', (req, res) => {
+  db.add(req.params.review).then((data) => {
+    res.status(200);
+    res.send(JSON.stringify(data));
+  }).catch((err) => {
+    res.status(500).send({ error: 'Unable to create this review from the database' });
+  });
+});
 
-// app.put()
+app.put('/api/reviews/:gameId', (req, res) => {
+  db.update(req.params.gameId, req.params.changes).then((data) => {
+    res.status(200);
+    res.send(JSON.stringify(data));
+  }).catch((err) => {
+    res.status(500).send({ error: 'Unable to update this review from the database' });
+  });
+});
 
-// app.delete()
+app.delete('/api/reviews/:gameId', (req, res) => {
+  db.remove(req.params.gameId).then((data) => {
+    res.status(200);
+    res.send(JSON.stringify(data));
+  }).catch((err) => {
+    res.status(500).send({ error: 'Unable to delete this review from the database' });
+  });
+});
 
 app.listen(port, () => {
   console.log(`App listening on ${port}`);

@@ -52,10 +52,8 @@ const seed = (numOfData) => {
   if (json.length >= numOfData) {
     Review.insertMany(json, (err, revs) => {
       if (err) {
-        console.log('hello?', err)
         throw(err);
       } else {
-        console.log('hello?', revs[1])
         console.log('Successfully seeded data!');
       }
     });

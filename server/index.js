@@ -28,8 +28,8 @@ app.get('/api/reviews/:gameId', (req, res) => {
   });
 });
 
-app.post('/api/reviews/:gameId', (req, res) => {
-  db.add(req.params.review).then((data) => {
+app.post('/api/reviews', (req, res) => {
+  db.add(req.body).then((data) => {
     res.status(200);
     res.send(JSON.stringify(data));
   }).catch((err) => {
@@ -37,8 +37,8 @@ app.post('/api/reviews/:gameId', (req, res) => {
   });
 });
 
-app.put('/api/reviews/:gameId', (req, res) => {
-  db.update(req.params.gameId, req.params.changes).then((data) => {
+app.put('/api/reviews', (req, res) => {
+  db.update(req.body.gameId, req.body).then((data) => {
     res.status(200);
     res.send(JSON.stringify(data));
   }).catch((err) => {
@@ -46,8 +46,8 @@ app.put('/api/reviews/:gameId', (req, res) => {
   });
 });
 
-app.delete('/api/reviews/:gameId', (req, res) => {
-  db.remove(req.params.gameId).then((data) => {
+app.delete('/api/reviews', (req, res) => {
+  db.remove(req.body.gameId).then((data) => {
     res.status(200);
     res.send(JSON.stringify(data));
   }).catch((err) => {

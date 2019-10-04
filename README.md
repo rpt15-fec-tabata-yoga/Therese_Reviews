@@ -44,6 +44,12 @@ To build the app on your local desktop, clone the [repository](https://github.co
   To seed the database: "npm run seed"
   To run the tests: "npm run test"
 ```
+CRUD APIs:
+```
+post -> /api/reviews -> send gameId in body
+delete -> api/reviews -> send gameId in body
+put -> api/reviews -> send gameId in body
+```
 
 ### 1.2 Related Projects
 
@@ -60,3 +66,15 @@ To build the app on your local desktop, clone the [repository](https://github.co
   * SQL: MySQL
   
 ## 3. Development Log
+
+### MySQL
+
+Connect to mysql by running `mysql -u root -p`. This will prompt you to enter your root user's password. 
+
+Upon getting to mysql terminal, run `source {path to db\mysql\schema.sql` if there were changes made to the schema. 
+
+Implement mysql library for Javascript via `npm install mysql`.
+
+Upon doing some research 2 things that I found that were interesting for performance. 
+  1. It is more efficient to run multiple INSERT statements than to run one INSERT statement with multiple values.
+  2. A for loop is more efficient than a forEach loop.

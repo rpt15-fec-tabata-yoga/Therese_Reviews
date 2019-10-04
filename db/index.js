@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const db = mongoose.connect('mongodb://database:27017/reviews', { useNewUrlParser: true });
+const db = mongoose.connect('mongodb://localhost/reviews', { useNewUrlParser: true });
+const Promise = require('bluebird');
 
 let dbConnection = mongoose.connection;
 dbConnection.on('error', console.error.bind(console, 'mongodb connection error'));

@@ -20,5 +20,5 @@ CREATE TABLE review(
   unhelpful INT NOT NULL,
   funny INT NOT NULL,
   comments INT NOT NULL,
-  userPhoto TEXT NOT NULL
+  userPhoto VARCHAR(255) NOT NULL
 );

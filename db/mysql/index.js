@@ -10,16 +10,21 @@ const pool = mysql.createPool({
 });
 
 const runQuery = (newReviews, connection)  => {
-  let vals = '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-  for (let i = 1; i < newReviews.length; i++) {
-    vals = vals + ', (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-  };
-  let sqlString =  `INSERT INTO review (game, author, numOfGames, numOfReviews, posted, recordHours, body, recommended, helpful, unhelpful, funny, comments, userPhoto) VALUES ${vals}`
-  connection.queryAsync(sqlString, newReviews).catch(err => {throw err;});
+  // let vals = '(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+  // for (let i = 1; i < newReviews.length; i++) {
+  //   vals = vals + ', (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+  // };
+  let sqlString =  `INSERT INTO review (game, author, numOfGames, numOfReviews, posted, recordHours, body, recommended, helpful, unhelpful, funny, comments, userPhoto) VALUES ?`
+  //console.log(newReviews)
+  connection.queryAsync(sqlString, [newReviews]).then((results) => {console.log(`${results.affectedRows} records inserted`);}).catch(err => {throw err;});
+
 }
 
 const seed = async (numOfRecords, connection) => {
-  let loopCnt = numOfRecords/25;
+  //use promise.map to control concurrency.
+  let reviewsGenerated = []
+  let loopCnt = numOfRecords/1000;
+  //generate an array of promises
   for (loopCnt; loopCnt > 0; loopCnt--) {
     //if the number of records to seed is not divisible by 10000;
     if (loopCnt < 1) {
@@ -30,21 +35,24 @@ const seed = async (numOfRecords, connection) => {
         console.log(`${numReviews} reviews seeded.`);
       });
     } else {
-      generate(25).then((newReviews) => {
-        runQuery(newReviews, connection)
-      }).then(() => {
-        // console.log('10000 reviews seeded.');
-        console.log('Database seeded.');
-        console.log('End time', new Date().toLocaleTimeString());
-      }).catch(err => {throw err;});
+      let newReviews = await generate(1000);
+      reviewsGenerated.push(newReviews)
     };
   };
+
+  await Promise.map(reviewsGenerated, (reviews) => {
+    runQuery(reviews, connection);
+  }, {concurrency: 100}).catch(err => {throw err;});
+
+
 };
 
-pool.getConnection((err, connection) => {
+pool.getConnection(async (err, connection) => {
   if (err) {throw err};
   console.log('Start time', new Date().toLocaleTimeString());
   connection = Promise.promisifyAll(connection)
-  seed(100000, connection);
+  await seed(1000000, connection);
+  console.log('Database seeded.');
+  console.log('End time', new Date().toLocaleTimeString());
 })
 

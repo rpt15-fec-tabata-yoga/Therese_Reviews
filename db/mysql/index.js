@@ -14,9 +14,12 @@ const runQuery = (newReviews, connection, loopCnt)  => {
   return connection.queryAsync(sqlString, [newReviews])
     .then((results) => {
       // console.log(`${results.affectedRows} records inserted`);
+      // const mem = process.memoryUsage().heapUsed;
+      // console.log(`Heap used: ${Math.round(mem / 1024 / 1024 * 100) / 100} MB`);
+
       if (loopCnt === 1) {
         console.log('Database seeded.');
-        console.log(process.memoryUsage());
+        // console.log(process.memoryUsage());
         console.log('Finished at', new Date().toLocaleTimeString());
         process.exit();
       }
@@ -35,21 +38,22 @@ const seed = async (numOfRecords, connection) => {
   for (loopCnt; loopCnt > 0; loopCnt--) {
     //if the number of records to seed is not divisible by 1000;
     if (loopCnt < 1) {
-      let numReviews = loopCnt * 25;
+      let numReviews = loopCnt * 1000;
       generate(numReviews).then((newReviews) => {
-        runQuery(newReviews, connection)
-      }).then(() => {
-        console.log(`${numReviews} reviews seeded.`);
-      });
+        reviewsGenerated.push(newReviews)
+      })
     } else {
       let newReviews = await generate(1000);
-      reviewsGenerated.push(newReviews)
+      reviewsGenerated.push(newReviews);
     };
-    if (loopCnt%10) {
+    //increasing the number of record that are generated to be inserted allocated memory more efficiently
+    if (loopCnt%1000) {
+      //adding concurrency doesn't seem to be working as I would expect..
       await Promise.map(reviewsGenerated, (reviews) => {
         runQuery(reviews, connection, loopCnt);
-      }).then(() => {
-        reviewsGenerated = [];
+      }, {concurrency: 100}).then(() => {
+        reviewsGenerated = null;
+        reviewsGenerated= [];
       }).catch(err => {throw err;});
     }
   };
@@ -59,6 +63,5 @@ pool.getConnection(async (err, connection) => {
   if (err) {throw err};
   console.log('Started at', new Date().toLocaleTimeString());
   connection = Promise.promisifyAll(connection)
-  await seed(1000000, connection);
+  seed(10000000, connection);
 })
-

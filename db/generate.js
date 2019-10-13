@@ -17,7 +17,11 @@ module.exports = (numOfData, callback) => {
     newReview.push(faker.random.number());
     newReview.push(faker.random.number());
     newReview.push(faker.image.avatar());
-    json.push(newReview);
+    if(numOfData===1) {
+      callback(null, newReview);
+    } else {
+      json.push(newReview);
+    }
   }
   callback(null, json);
 };

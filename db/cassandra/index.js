@@ -16,21 +16,39 @@ client.connect((err) => {
   };
 })
 
-const runBatch = (batchOfReviews, queries) => {
+// const runBatch = (batchOfReviews, queries) => {
 
-}
+// }
 
 const seed = async (numOfReviews) => {
-  let batchOfReviews = [];
+  console.log('Started at', new Date().toLocaleTimeString());
   let queries = [];
-  const queryString = 'INSERT INTO review (game_id, game, author, numOfGames, numOfReviews, posted, recordHours, body, recommended, helpful, unhelpful, funny, comments, userPhoto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
-  for (let i = 1; i < numOfReviews; i++) {
-
-    //create batches of reviews to be inserted
+  const queryString = 'INSERT INTO reviews (game_id, game, author, numOfGames, numOfReviews, posted, recordHours, body, recommended, helpful, unhelpful, funny, comments, userPhoto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+  for (let i = 0; i < numOfReviews; i++) {
+    //create a single review and push to query array
+    let obj = {};
     let newReview = await generate(1);
-    newReview.unshift(i);
-
+    newReview.unshift(i+1);
+    obj.query = queryString;
+    obj.params = newReview;
+    queries.push(obj);
+    //create batches of reviews to be inserted
+    if (i%10000) {
+      await client.batch(queries, {prepare: true})
+        .then((results) => {
+          console.log(`GameId = ${queries.params[0]}`)
+          const mem = process.memoryUsage().heapUsed;
+          console.log(`Heap used: ${Math.round(mem / 1024 / 1024 * 100) / 100} MB`);
+          queries = null;
+          queries = [];
+          if (i===numOfReviews-1){
+            //console.log('Database seeded.');
+            console.log('Finished at', new Date().toLocaleTimeString());
+            process.exit();
+          }
+        }).catch((err) => { if (err) throw err;})
+    }
   }
 }
 
-seed(100)
+seed(1000000)

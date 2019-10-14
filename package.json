@@ -9,8 +9,8 @@
     "start": "nodemon server/index.js",
     "startDocker": "concurrently --kill-others \"npm run seed\" \"npm run start\"",
     "seed": "node db/seed.js",
-    "mysql:setup": "node db/mysql/index.js",
-    "cass:setup": "node db/cassandra/index.js"
+    "mysql:setup": "node db/mysql/seed.js",
+    "cass:setup": "node db/cassandra/seed.js"
   },
   "repository": {
     "type": "git",

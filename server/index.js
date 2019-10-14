@@ -57,4 +57,5 @@ app.delete('/api/reviews', (req, res) => {
 
 app.listen(port, () => {
   console.log(`App listening on ${port}`);
+  console.log( `Database being used: ${process.env.DB}`)
 });

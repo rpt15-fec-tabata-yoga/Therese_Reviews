@@ -65,3 +65,5 @@ pool.getConnection(async (err, connection) => {
   connection = Promise.promisifyAll(connection)
   seed(10000000, connection);
 })
+
+module.exports.pool = pool;

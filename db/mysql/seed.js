@@ -22,6 +22,7 @@ const runQuery = (newReviews, loopCnt)  => {
 }
 
 const seed = async (numOfRecords) => {
+  console.log('Started at', new Date().toLocaleTimeString());
   //use promise.map to control concurrency.
   let reviewsGenerated = []
   // issue lies with the constantly growing reviewsGenerated array.

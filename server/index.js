@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -29,6 +30,7 @@ app.get('/api/reviews/:gameId', (req, res) => {
 });
 
 app.post('/api/reviews', (req, res) => {
+  //make sure to include game_id as first parameter in request body
   db.add(req.body).then((data) => {
     res.status(200);
     res.send(JSON.stringify(data));

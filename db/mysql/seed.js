@@ -1,9 +1,10 @@
 const Promise = require('bluebird');
 const pool = Promise.promisifyAll(require('./index.js'));
 const generate = Promise.promisify(require('../generate.js'));
+const faker = require('faker');
 
 const runQuery = (newReviews, loopCnt)  => {
-  let sqlString =  `INSERT INTO review (game, author, numOfGames, numOfReviews, posted, recordHours, body, recommended, helpful, unhelpful, funny, comments, userPhoto) VALUES ?`
+  let sqlString =  `INSERT INTO review (author, numOfGames, numOfReviews, posted, recordHours, body, recommended, helpful, unhelpful, funny, comments, userPhoto, game_id) VALUES ?`
   return pool.queryAsync(sqlString, [newReviews])
     .then((results) => {
       // console.log(`${results.affectedRows} records inserted`);
@@ -22,9 +23,9 @@ const runQuery = (newReviews, loopCnt)  => {
 }
 
 const seed = async (numOfRecords) => {
-  console.log('Started at', new Date().toLocaleTimeString());
+  console.log('Started seeding reviews at', new Date().toLocaleTimeString());
   //use promise.map to control concurrency.
-  let reviewsGenerated = []
+  let reviewsGenerated = [];
   // issue lies with the constantly growing reviewsGenerated array.
   // should address this by working in batches.
   let loopCnt = numOfRecords/1000;
@@ -37,7 +38,8 @@ const seed = async (numOfRecords) => {
         reviewsGenerated.push(newReviews)
       })
     } else {
-      let newReviews = await generate(1000);
+      //generate 100 reviews per game
+      let newReviews = await generate(1000, gameId);
       reviewsGenerated.push(newReviews);
     };
     //increasing the number of record that are generated to be inserted allocated memory more efficiently
@@ -53,4 +55,24 @@ const seed = async (numOfRecords) => {
   };
 };
 
+const seedGames = async (numOfReviews) => {
+  console.log('Seeding games at', new Date().toLocaleTimeString());
+  const numOfGames = numOfReviews/100;
+  let gamesAry = [];
+  let sqlString = `INSERT INTO game (name) VALUES ?`
+  for (let i = 0; i < numOfGames; i++) {
+    gamesAry.push(faker.company.companyName());
+    if (i%1000) {
+      await pool.queryAsync(sqlString, [gamesAry]).then(() => {
+        gamesAry = null;
+        gamesAry= [];
+        if (i === numOfGames-1) {
+          console.log('Finished seeding games at', new Date().toLocaleTimeString());
+        }
+      }).catch(err => {throw err;});
+    }
+  }
+}
+
+seedGames(10000000);
 seed(10000000);

@@ -1,6 +1,7 @@
 const Promise = require('bluebird');
 let dbUsed = process.env.DB;
-const sql,noSql;
+let sql = '';
+let noSql = '';
 if (dbUsed === 'mysql') {
   sql = Promise.promisifyAll(require('./mysql/index.js'));
 } else if (dbUsed === 'cassandra') {

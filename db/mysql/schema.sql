@@ -13,7 +13,7 @@ CREATE TABLE game(
 
 CREATE TABLE review(
   id INT AUTO_INCREMENT PRIMARY KEY,
-  game_id VARCHAR(255) NOT NULL,
+  game_id INT NOT NULL,
   author VARCHAR(100) NOT NULL,
   numOfGames INT NOT NULL,
   numOfReviews INT NOT NULL,

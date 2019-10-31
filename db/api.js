@@ -73,9 +73,26 @@ const add = (review) => {
   };
 };
 
+const fetchMult = (limit) => {
+  if (dbUsed === 'mysql') {
+    return sql.queryAsync(`SELECT * FROM review LIMIT ${limit}`).then((results) => {
+      data = JSON.parse(JSON.stringify(results))
+      return data;
+    }).catch((err) => {if(err) {throw err}});
+  } else if (dbUsed === 'cassandra') {
+    return noSql.executeAsync(`SELECT * FROM reviews_db.reviews LIMIT ${limit}`).then((results) => {
+      data = JSON.parse(JSON.stringify(results.rows))
+      return data;
+    }).catch((err) => {if(err) {throw err}});
+  } else {
+    console.log ('The database being used is not supported by this app.')
+  };
+};
+
 module.exports = {
   fetch,
   update,
   remove,
-  add
+  add,
+  fetchMult
 };

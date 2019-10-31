@@ -29,6 +29,15 @@ app.get('/api/reviews/:gameId', (req, res) => {
   });
 });
 
+app.get('/api/reviews/mult/:limit', (req, res) => {
+  db.fetchMult(req.params.limit).then((data) => {
+    res.status(200);
+    res.send(JSON.stringify(data));
+  }).catch((err) => {
+    res.status(500).send({ error: 'Unable to fetch reviews from the database' });
+  });
+});
+
 app.post('/api/reviews', (req, res) => {
   //make sure to include game_id as first parameter in request body
   db.add(req.body).then((data) => {

@@ -58,7 +58,7 @@ const remove = (gameId) => {
 
 const add = (review) => {
   if (dbUsed === 'mysql') {
-    return sql.queryAsync(`INSERT INTO review (game_id, author, numOfGames, numOfReviews, posted, recordHours, body, recommended, helpful, unhelpful, funny, comments, userPhoto) VALUES ?`, [review]).then((results) => {
+    return sql.queryAsync(`INSERT INTO review (author, numOfGames, numOfReviews, posted, recordHours, body, recommended, helpful, unhelpful, funny, comments, userPhoto, game_id) VALUES ?`, [review]).then((results) => {
       data = JSON.parse(JSON.stringify(results))
       return data;
     }).catch((err) => {if(err) {throw err}});

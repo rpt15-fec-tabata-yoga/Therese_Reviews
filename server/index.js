@@ -39,8 +39,8 @@ app.get('/api/reviews/mult/:limit', (req, res) => {
 });
 
 app.post('/api/reviews', (req, res) => {
-  //make sure to include game_id as first parameter in request body
-  db.add(req.body.review).then((data) => {
+  let newReview = JSON.parse(req.body.review)
+  db.add(newReview).then((data) => {
     res.status(200);
     res.send(JSON.stringify(data));
   }).catch((err) => {

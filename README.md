@@ -95,7 +95,7 @@ Upon doing some research 2 things that I found that were interesting for perform
 | MySQL     | GET   | 10   | 3.14 ms | 0.00% |
 | MySQL     | GET   | 100  | 6.02 ms | 0.00% |
 | MySQL     | GET   | 1000 | 41.9 ms | 0.00% |
-| MySQL     | POST  | 1    |  ms | 0.00% |
-| MySQL     | POST  | 10   |  ms | 0.00% |
-| MySQL     | POST  | 100  |  ms | 0.00% |
-| MySQL     | POST  | 1000 |  ms | 0.00% |
+| MySQL     | POST  | 1    | 4.26 ms | 0.00% |
+| MySQL     | POST  | 10   | 7.22 ms | 0.00% |
+| MySQL     | POST  | 100  | 11.2 ms | 0.00% |
+| MySQL     | POST  | 1000 | 15.5 ms | 0.00% |

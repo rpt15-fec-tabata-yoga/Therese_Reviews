@@ -65,7 +65,7 @@ const add = (review) => {
     }).catch((err) => {if(err) {throw err}});
   } else if (dbUsed === 'cassandra') {
     //need to get a game_id and push it to the review array
-    return noSql.executeAsync(`INSERT INTO reviews_db.reviews (game_id, author, numOfGames, numOfReviews, posted, recordHours, body, recommended, helpful, unhelpful, funny, comments, userPhoto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [review]).then((results) => {
+    return noSql.executeAsync(`INSERT INTO reviews_db.reviews (game_id, game, author, numOfGames, numOfReviews, posted, recordHours, body, recommended, helpful, unhelpful, funny, comments, userPhoto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, review, { prepare: true }).then((results) => {
       let data = JSON.parse(JSON.stringify(results.rows))
       return data;
     }).catch((err) => {if(err) {throw err}});

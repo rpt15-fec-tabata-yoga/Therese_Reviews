@@ -9,8 +9,10 @@ export let options = {
 
 export default function() {
   let newReview = [];
+  newReview.push(100);
+  newReview.push('The fun game')
   newReview.push('Rich Chigga');
-  newReview.push(123413);
+  newReview.push(Math.floor(Math.random() * (100000 - 10000 + 1)));
   newReview.push(432421);
   newReview.push('2017-01-01');
   newReview.push(63456);
@@ -21,7 +23,7 @@ export default function() {
   newReview.push(2343);
   newReview.push(6375468);
   newReview.push('http://robohash.org/set_set1/bgset_bg2/kQqaIfGqxsjFoNIT');
-  newReview.push(100);
+  // newReview.push(100);
 
 
   let res = http.post(`http://localhost:3001/api/reviews/`, {review: JSON.stringify(newReview)});

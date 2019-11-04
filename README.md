@@ -82,15 +82,15 @@ Upon doing some research 2 things that I found that were interesting for perform
 ### DBMS Benchmarks
 
 | DBMS      | Route | RPS  | LATENCY | ERROR RATE |
-| --------- | ----- | ---- | ------- | ---------- | ---------- |
-<!-- | Cassandra | GET   | 1    | 4.03ms  | 41.9rpm | 0.00% |
-| Cassandra | GET   | 10   | 4.79ms  | 498rpm | 0.00% |
-| Cassandra | GET   | 100  | 5.97ms  | 5,450rpm | 0.00% |
-| Cassandra | GET   | 1000 | 24.2ms  | 12,700rpm | 0.00% |
-| Cassandra | POST  | 1    | 4.75ms  | 45.5rpm | 0.00% |
-| Cassandra | POST  | 10   | 3.52ms  | 399rpm | 0.00% |
-| Cassandra | POST  | 100  | 2.47ms  | 5,010rpm | 0.00% |
-| Cassandra | POST  | 1000 | 14.6ms  | 17,100rpm | 0.00% | -->
+| --------- | ----- | ---- | ------- | ---------- |
+| Cassandra | GET   | 1    | 3.24 ms  | 0.00% |
+| Cassandra | GET   | 10   | 3.86 ms  | 0.00% |
+| Cassandra | GET   | 100  | 13 ms  | 0.00% |
+| Cassandra | GET   | 1000 | 85.4 ms  | 0.00% |
+| Cassandra | POST  | 1    | 3.75 ms  | 0.00% |
+| Cassandra | POST  | 10   | 3.36 ms  | 0.00% |
+| Cassandra | POST  | 100  | 2.75 ms  | 0.00% |
+| Cassandra | POST  | 1000 | 14 ms  | 0.00% |
 | MySQL     | GET   | 1    | 2.29 ms  | 0.00% |
 | MySQL     | GET   | 10   | 3.14 ms | 0.00% |
 | MySQL     | GET   | 100  | 6.02 ms | 0.00% |
